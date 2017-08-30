@@ -24,6 +24,10 @@
 		6CFD1DD02AD7D1766D201E70 /* Pods_LZBAudioPlayer_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD028E852383549ECE1D6C7B /* Pods_LZBAudioPlayer_Example.framework */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		C8D0E34E1F564EEB00148C67 /* LZBAudioDownLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D0E3471F564EEB00148C67 /* LZBAudioDownLoader.m */; };
+		C8D0E34F1F564EEB00148C67 /* LZBAudioFileManger.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D0E3491F564EEB00148C67 /* LZBAudioFileManger.m */; };
+		C8D0E3501F564EEB00148C67 /* LZBAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D0E34B1F564EEB00148C67 /* LZBAudioPlayer.m */; };
+		C8D0E3511F564EEB00148C67 /* LZBAudioResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D0E34D1F564EEB00148C67 /* LZBAudioResourceLoader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +42,8 @@
 
 /* Begin PBXFileReference section */
 		31886B034DF91AF7CFE48E53 /* Pods_LZBAudioPlayer_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LZBAudioPlayer_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3BE235A47F9169B2163E6751 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		4F28AEE663C6AC8C17C02803 /* LZBAudioPlayer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = LZBAudioPlayer.podspec; path = ../LZBAudioPlayer.podspec; sourceTree = "<group>"; };
+		3BE235A47F9169B2163E6751 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		4F28AEE663C6AC8C17C02803 /* LZBAudioPlayer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LZBAudioPlayer.podspec; path = ../LZBAudioPlayer.podspec; sourceTree = "<group>"; };
 		585FC22DC97D53444A5320B0 /* Pods-LZBAudioPlayer_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZBAudioPlayer_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LZBAudioPlayer_Tests/Pods-LZBAudioPlayer_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* LZBAudioPlayer_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LZBAudioPlayer_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,9 +66,17 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		61D14B599B458799F62D9DDB /* Pods-LZBAudioPlayer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZBAudioPlayer_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LZBAudioPlayer_Tests/Pods-LZBAudioPlayer_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		781B47B4EA4D56CD60B1DC6F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		781B47B4EA4D56CD60B1DC6F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD028E852383549ECE1D6C7B /* Pods_LZBAudioPlayer_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LZBAudioPlayer_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8D0E3461F564EEB00148C67 /* LZBAudioDownLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBAudioDownLoader.h; sourceTree = "<group>"; };
+		C8D0E3471F564EEB00148C67 /* LZBAudioDownLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBAudioDownLoader.m; sourceTree = "<group>"; };
+		C8D0E3481F564EEB00148C67 /* LZBAudioFileManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBAudioFileManger.h; sourceTree = "<group>"; };
+		C8D0E3491F564EEB00148C67 /* LZBAudioFileManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBAudioFileManger.m; sourceTree = "<group>"; };
+		C8D0E34A1F564EEB00148C67 /* LZBAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBAudioPlayer.h; sourceTree = "<group>"; };
+		C8D0E34B1F564EEB00148C67 /* LZBAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBAudioPlayer.m; sourceTree = "<group>"; };
+		C8D0E34C1F564EEB00148C67 /* LZBAudioResourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBAudioResourceLoader.h; sourceTree = "<group>"; };
+		C8D0E34D1F564EEB00148C67 /* LZBAudioResourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBAudioResourceLoader.m; sourceTree = "<group>"; };
 		D4F9C50B22AAC54157C567D2 /* Pods-LZBAudioPlayer_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZBAudioPlayer_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-LZBAudioPlayer_Example/Pods-LZBAudioPlayer_Example.release.xcconfig"; sourceTree = "<group>"; };
 		EE458B019F415852237AC25F /* Pods-LZBAudioPlayer_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZBAudioPlayer_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LZBAudioPlayer_Example/Pods-LZBAudioPlayer_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +144,7 @@
 		6003F593195388D20070C39A /* Example for LZBAudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				C8D0E3451F564EEB00148C67 /* LZBAudioPlayer */,
 				6003F59C195388D20070C39A /* LZBAppDelegate.h */,
 				6003F59D195388D20070C39A /* LZBAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -183,6 +196,21 @@
 				781B47B4EA4D56CD60B1DC6F /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		C8D0E3451F564EEB00148C67 /* LZBAudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				C8D0E3461F564EEB00148C67 /* LZBAudioDownLoader.h */,
+				C8D0E3471F564EEB00148C67 /* LZBAudioDownLoader.m */,
+				C8D0E3481F564EEB00148C67 /* LZBAudioFileManger.h */,
+				C8D0E3491F564EEB00148C67 /* LZBAudioFileManger.m */,
+				C8D0E34A1F564EEB00148C67 /* LZBAudioPlayer.h */,
+				C8D0E34B1F564EEB00148C67 /* LZBAudioPlayer.m */,
+				C8D0E34C1F564EEB00148C67 /* LZBAudioResourceLoader.h */,
+				C8D0E34D1F564EEB00148C67 /* LZBAudioResourceLoader.m */,
+			);
+			path = LZBAudioPlayer;
 			sourceTree = "<group>";
 		};
 		CA1A6941828D19BDA9FD2990 /* Pods */ = {
@@ -394,8 +422,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8D0E3501F564EEB00148C67 /* LZBAudioPlayer.m in Sources */,
+				C8D0E3511F564EEB00148C67 /* LZBAudioResourceLoader.m in Sources */,
+				C8D0E34E1F564EEB00148C67 /* LZBAudioDownLoader.m in Sources */,
 				6003F59E195388D20070C39A /* LZBAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* LZBViewController.m in Sources */,
+				C8D0E34F1F564EEB00148C67 /* LZBAudioFileManger.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
