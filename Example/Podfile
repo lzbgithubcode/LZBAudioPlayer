@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'LZBAudioPlayer_Example' do
+  pod 'LZBAudioPlayer', :path => '../'
+
+  target 'LZBAudioPlayer_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
