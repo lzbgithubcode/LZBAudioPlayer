@@ -5,25 +5,45 @@
 [![License](https://img.shields.io/cocoapods/l/LZBAudioPlayer.svg?style=flat)](http://cocoapods.org/pods/LZBAudioPlayer)
 [![Platform](https://img.shields.io/cocoapods/p/LZBAudioPlayer.svg?style=flat)](http://cocoapods.org/pods/LZBAudioPlayer)
 
-## Example
+## 简单介绍
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+LZBAudioPlayer完整封装了音频播放器的逻辑，没有设置播放器的UI部分，所以你可以完全自定义UI，并且你可以访问播放的业务方法或者状态来更改UI的样式
+* 支持在线播放音频
+* 支持下载播放音频
+* 支持边下载边播放
 
-## Requirements
+## 类的介绍
+* LZBAudioPlayer   播放器
+* LZBAudioFileManger   下载文件管理，负责管理文件下载，下载文件在temp文件中下载，下载完成并文件完好保存在cache文件中
+* LZBAudioDownLoader  音频下载器，负责下载区间音频
+* LZBAudioResourceLoader 请求资源类
+   
 
-## Installation
-
-LZBAudioPlayer is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+## 使用CocoaPods导入
 
 ```ruby
 pod "LZBAudioPlayer"
 ```
 
+## 手动导入
+
+将`LZBAudioPlayer`文件夹中的所有源代码拽入项目中
+
+导入主头文件：`#import "LZBAudioPlayer.h"`
+
+
 ## Author
 
 lzbgithubcode, 1835064412@qq.com
 
-## License
 
-LZBAudioPlayer is available under the MIT license. See the LICENSE file for more info.
+## 详细解说
+
+[边下载边缓存的音频播放器AVPlayer](http://www.jianshu.com/p/042162ab9cc1)
+
+## 期待
+* 如果在使用过程中遇到BUG，希望你能联系我，谢谢
+* 如果您觉得这个这个demo对您有所帮助，请给我一颗❤️❤️,star一下
+
+
+
