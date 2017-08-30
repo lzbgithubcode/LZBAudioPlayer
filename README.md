@@ -140,17 +140,20 @@ lzbgithubcode, 1835064412@qq.com
 ## 详细解说
 简书地址：[边下载边缓存的音频播放器AVPlayer](http://www.jianshu.com/p/042162ab9cc1)
 
+##联系作者
+* QQ : 1835064412
+* 简书：[摸着石头过河_崖边树](http://www.jianshu.com/u/268ed1ef819e)
+* email:1835064412@qq.com
+
 
 ## 期待
 * 如果在使用过程中遇到BUG，希望你能联系我，谢谢
 * 如果您觉得这个这个demo对您有所帮助，请给我一颗❤️❤️,star一下
 * 如果你想了解更多的开源姿势，可以关注公众号
+
 ![image](https://github.com/lzbgithubcode/LZBAudioPlayer/raw/master/screenshotImage/developerCoder08.jpg)
 
-##联系作者
-* QQ : 1835064412
-* 简书：[摸着石头过河_崖边树](http://www.jianshu.com/u/268ed1ef819e)
-* email:1835064412@qq.com
+
 
 
 
