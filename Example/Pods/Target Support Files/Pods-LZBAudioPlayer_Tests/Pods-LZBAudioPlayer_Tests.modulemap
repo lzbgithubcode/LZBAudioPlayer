@@ -1,0 +1,6 @@
+framework module Pods_LZBAudioPlayer_Tests {
+  umbrella header "Pods-LZBAudioPlayer_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'LZBAudioPlayer'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of LZBAudioPlayer.'
+  s.summary          = 'LZBAudioPlayer.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+TODO: 音频播放器，支持下载、在线播放等.
                        DESC
 
   s.homepage         = 'https://github.com/lzbgithubcode/LZBAudioPlayer'

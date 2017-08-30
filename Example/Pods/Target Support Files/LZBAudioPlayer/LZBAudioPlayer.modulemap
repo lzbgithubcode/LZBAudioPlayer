@@ -1,0 +1,6 @@
+framework module LZBAudioPlayer {
+  umbrella header "LZBAudioPlayer-umbrella.h"
+
+  export *
+  module * { export * }
+}

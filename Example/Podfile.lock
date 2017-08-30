@@ -1,0 +1,16 @@
+PODS:
+  - LZBAudioPlayer (0.1.0)
+
+DEPENDENCIES:
+  - LZBAudioPlayer (from `../`)
+
+EXTERNAL SOURCES:
+  LZBAudioPlayer:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LZBAudioPlayer: 5b9966060fe965d83e238f5b79092ccdef50ddec
+
+PODFILE CHECKSUM: fe9b039b667e1c1fb6b6d9e5cf4ec1bfddfee063
+
+COCOAPODS: 1.2.1
