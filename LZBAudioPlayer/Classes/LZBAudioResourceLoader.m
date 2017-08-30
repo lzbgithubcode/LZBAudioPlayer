@@ -18,7 +18,7 @@
 /**下载器*/
 @property (nonatomic, strong) LZBAudioDownLoader *downLoader;
 /**下载数据请求数组*/
-@property (nonatomic, strong) NSMutableArray *downLoadedDataRequests;
+@property (nonatomic, strong) NSMutableArray<AVAssetResourceLoadingRequest*> *downLoadedDataRequests;
 @end
 
 
@@ -34,21 +34,19 @@
 - (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest
 {
     
+    [self.downLoadedDataRequests addObject:loadingRequest];
+    
     //1.如果Cache资源已经存在，那么就结束请求，并把资源给外界 retern
     if([LZBAudioFileManger cacheFileExitWithURL:self.inputURL])
     {
         [self handleLocationCacheLoadingRequest:loadingRequest];
         return  YES;
     }
-
-    long long requireStartOffset = loadingRequest.dataRequest.requestedOffset;
-    long long currentOffset = loadingRequest.dataRequest.currentOffset;
-    if(requireStartOffset != currentOffset)
-        requireStartOffset = currentOffset;
     
-    [self.downLoadedDataRequests addObject:loadingRequest];
+    //1.1获取请求队列第一个请求
+    AVAssetResourceLoadingRequest *firstLoadingRequest = self.downLoadedDataRequests.firstObject;
+    long long requireStartOffset = firstLoadingRequest.dataRequest.currentOffset;
     
-    NSLog(@"=====%@",loadingRequest);
     //2.如果Cache资源不存在，那么temp中是否已经有加载，如果不存在，那么直接从头开始加载 retern
     if(self.downLoader.downLoadSize == 0)
     {
@@ -61,13 +59,13 @@
     //3.判断是否需要重新下载
     //3.1 请求开始点 < 已经下载资源的开始点
     //3.2 请求开始点 > 已经下载资源的开始点 + 长度 + 多一段长度（自定义100）
-     if(requireStartOffset < self.downLoader.startOffset  || self.downLoader.startOffset + self.downLoader.downLoadSize + 100 < requireStartOffset)
-     {
-         [self.downLoader invalidateAndClean];
-         [self.downLoader downLoaderWithURL:self.inputURL offset:requireStartOffset];
-         return YES;
-     }
-     //4.不需要重新加载，就继续加载，并且把已经加载好的数据给外界
+    if(requireStartOffset < self.downLoader.startOffset  || self.downLoader.startOffset + self.downLoader.downLoadSize + 100 < requireStartOffset)
+    {
+        [self.downLoader invalidateAndClean];
+        [self.downLoader downLoaderWithURL:self.inputURL offset:requireStartOffset];
+        return YES;
+    }
+    //4.不需要重新加载，就继续加载，并且把已经加载好的数据给外界
     [self hanleAllLoadingRequests];
     return YES;
 }
@@ -92,23 +90,21 @@
 //处理加载请求
 - (void)hanleAllLoadingRequests
 {
-    NSMutableArray *deleteRequests = [NSMutableArray array];
-    for (AVAssetResourceLoadingRequest *loadingRequest in self.downLoadedDataRequests) {
-
-        //1.填充请求信息
-        [self processFillRequestInfomation:loadingRequest];
-        
-        //2.把加载好的数据响应给外界,填充数据
-        BOOL compeletion = [self processRequestDataCompeletionResponse:loadingRequest];
-        //3.完成本次请求加载
-        if(compeletion)
-        {
-            [loadingRequest finishLoading];
-            [deleteRequests addObject:loadingRequest];
-        }
+    //0.获取请求队列第一个请求
+    AVAssetResourceLoadingRequest *loadingRequest = self.downLoadedDataRequests.firstObject;
+    
+    //1.填充请求信息
+    [self processFillRequestInfomation:loadingRequest];
+    
+    //2.把加载好的数据响应给外界,填充数据
+    BOOL compeletion = [self processRequestDataCompeletionResponse:loadingRequest];
+    //3.完成本次请求加载
+    if(compeletion)
+    {
+        [loadingRequest finishLoading];
+        [self.downLoadedDataRequests removeObject:loadingRequest];
     }
     
-    [self.downLoadedDataRequests removeObjectsInArray:deleteRequests];
 }
 
 //填充信息头信息
@@ -125,16 +121,14 @@
 //填充数据是否完成
 - (BOOL)processRequestDataCompeletionResponse:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    long long requestedOffset = loadingRequest.dataRequest.requestedOffset;
-    long long currentOffset = loadingRequest.dataRequest.currentOffset;
+    long long requestedOffset = loadingRequest.dataRequest.currentOffset;
     long long requestedLength = loadingRequest.dataRequest.requestedLength;
-    if(currentOffset != 0)
-        requestedOffset = currentOffset;
+    
     
     NSData *data = [NSData dataWithContentsOfFile:[LZBAudioFileManger tempFilePathWithURL:self.inputURL] options:NSDataReadingMappedIfSafe error:nil];
     if(data == nil)
     {
-       data = [NSData dataWithContentsOfFile:[LZBAudioFileManger cacheFilePathWithURL:self.inputURL] options:NSDataReadingMappedIfSafe error:nil];
+        data = [NSData dataWithContentsOfFile:[LZBAudioFileManger cacheFilePathWithURL:self.inputURL] options:NSDataReadingMappedIfSafe error:nil];
     }
     
     long long responseOffset = requestedOffset - self.downLoader.startOffset;
@@ -184,20 +178,20 @@
 
 - (LZBAudioDownLoader *)downLoader
 {
-  if(_downLoader == nil)
-  {
-      _downLoader = [[LZBAudioDownLoader alloc]init];
-      _downLoader.downLoaderDelegate = self;
-  }
+    if(_downLoader == nil)
+    {
+        _downLoader = [[LZBAudioDownLoader alloc]init];
+        _downLoader.downLoaderDelegate = self;
+    }
     return _downLoader;
 }
 
-- (NSMutableArray *)downLoadedDataRequests
+- (NSMutableArray <AVAssetResourceLoadingRequest *> *)downLoadedDataRequests
 {
-  if(!_downLoadedDataRequests)
-  {
-      _downLoadedDataRequests = [NSMutableArray array];
-  }
+    if(!_downLoadedDataRequests)
+    {
+        _downLoadedDataRequests = [NSMutableArray array];
+    }
     return _downLoadedDataRequests;
 }
 @end
